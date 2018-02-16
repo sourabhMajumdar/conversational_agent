@@ -14,7 +14,7 @@ to work on better technologies. One of the most important aspects of such an age
 We start small by developing a conversational agent for the student library. The objective of this agent is to answer student
 queries related to library matters.
 
-####It would have been easy, except that there is no publically available dataset to train a such an agent.
+#### It would have been easy, except that there is no publically available dataset to train a such an agent.
 
 So what our plan is to train a model on simmillar grounds and figure out a way to integrate it to our above role. We have chosen the Dialog State Tracking Challenge 2017 as our starting point. What we plan to do is shadow the work of Facebook and build up a chat corpus in the background for the library.
 
