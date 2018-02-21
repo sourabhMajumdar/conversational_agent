@@ -14,9 +14,12 @@ to work on better technologies. One of the most important aspects of such an age
 We start small by developing a conversational agent for the student library. The objective of this agent is to answer student
 queries related to library matters.
 
-*It would have been easy, except that there is no publically available dataset to train a such an agent.*
+**It would have been easy, except that there is no publically available dataset to train a such an agent.**
 
 So what our plan is to train a model on simmillar grounds and figure out a way to integrate it to our above role. We have chosen the Dialog State Tracking Challenge 2017 as our starting point. What we plan to do is shadow the work of Facebook and build up a chat corpus in the background for the library.
+
+here is a photo of the basic architecture we are building.
+![alt tag](http://i.imgur.com/nv89JLc.png)
 
 ### Current Work
 
@@ -25,48 +28,42 @@ We are currently developing the memory part of the Facebook Memory Network.
 ### How do we create a memory
 
 The answer is embedding. As one is reading this document, it should be evident that we need some kind of representation of words.
-We will use GloVe vectors for this and especialy the following two code snippents
 
-*to load the glove vectors*
+We use a embedding layer to find the vectorized representation. In keras this is done by the following lines
 ```
-word_to_index, index_to_word, word_to_vec_map = read_glove_vecs('data/glove.6B.50d.txt')
+from keras.models import Sequential, Model
+from keras.layers.embeddings import Embedding
+
+# embed the input sequence into a sequence of vectors
+    input_encoder_m = Sequential()
+    input_encoder_m.add(Embedding(input_dim=vocab_size,
+                                  output_dim=64))
+    input_encoder_m.add(Dropout(0.3))
+    # output: (samples, story_maxlen, embedding_dim)
+
+    # embed the input into a sequence of vectors of size query_maxlen
+    input_encoder_c = Sequential()
+    input_encoder_c.add(Embedding(input_dim=vocab_size,
+                              output_dim=query_maxlen))
+    input_encoder_c.add(Dropout(0.3))
+    # output: (samples, story_maxlen, query_maxlen)
+
+    # embed the question into a sequence of vectors
+    question_encoder = Sequential()
+    question_encoder.add(Embedding(input_dim=vocab_size,
+                                   output_dim=64,
+                                   input_length=query_maxlen))
+    question_encoder.add(Dropout(0.3))
+    # output: (samples, query_maxlen, embedding_dim)
+
+    # encode input sequence and questions (which are indices)
+    # to sequences of dense vectors
+    input_encoded_m = input_encoder_m(input_sequence)
+    input_encoded_c = input_encoder_c(input_sequence)
+    question_encoded = question_encoder(question)
+
 ```
+### Now How do we create a Dataset from the data which we have
 
-*to creating the embedding layer*
+I suggest you look at the parser.py file to figure out how, its being done. Remeber it is still half-baked and we still need to convert the words into their indices according to the dictionary.
 
-```
-def pretrained_embedding_layer(word_to_vec_map, word_to_index):
-    """
-    Creates a Keras Embedding() layer and loads in pre-trained GloVe 50-dimensional vectors.
-    
-    Arguments:
-    word_to_vec_map -- dictionary mapping words to their GloVe vector representation.
-    word_to_index -- dictionary mapping from words to their indices in the vocabulary (400,001 words)
-
-    Returns:
-    embedding_layer -- pretrained layer Keras instance
-    """
-    
-    vocab_len = len(word_to_index) + 1                  # adding 1 to fit Keras embedding (requirement)
-    emb_dim = word_to_vec_map["cucumber"].shape[0]      # define dimensionality of your GloVe word vectors (= 50)
-    
-    ### START CODE HERE ###
-    # Initialize the embedding matrix as a numpy array of zeros of shape (vocab_len, dimensions of word vectors = emb_dim)
-    emb_matrix = np.zeros((vocab_len,emb_dim))
-    
-    # Set each row "index" of the embedding matrix to be the word vector representation of the "index"th word of the vocabulary
-    for word, index in word_to_index.items():
-        emb_matrix[index, :] = word_to_vec_map[word]
-
-    # Define Keras embedding layer with the correct output/input sizes, make it trainable. Use Embedding(...). Make sure to set trainable=False. 
-    embedding_layer = Embedding(vocab_len,emb_dim,trainable=False)
-    ### END CODE HERE ###
-
-    # Build the embedding layer, it is required before setting the weights of the embedding layer. Do not modify the "None".
-    embedding_layer.build((None,))
-    
-    # Set the weights of the embedding layer to the embedding matrix. Your layer is now pretrained.
-    embedding_layer.set_weights([emb_matrix])
-    
-    return embedding_layer
-```
