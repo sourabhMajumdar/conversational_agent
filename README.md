@@ -65,5 +65,16 @@ from keras.layers.embeddings import Embedding
 ```
 ### Now How do we create a Dataset from the data which we have
 
-I suggest you look at the parser.py file to figure out how, its being done. Remeber it is still half-baked and we still need to convert the words into their indices according to the dictionary.
+I suggest you look at the parser.py file to figure out how, its being done. To give a breif description, it extracts the words and vectorizes it according to the dictionary of words that we create from the training data.
+
+First we separated the user utterances and the bot utterances, then we created a vocabulary of words used in both of these utterances. Then we proceeed to transform each utterance into a number representation where each word is converted to the corresponding index it appears in the aformentioned dictionary.
+
+Creating the story is a little tricky but not that difficult. Each story is a set of user and bot utterances that has happened upto that point. We just add both of these sentences together to form a list of words that have been spoken untill now.
+Now as we did with the user and bot utterances, we convert the story into a vectorized representation of the words.
+
+### Next Challenge
+
+Since we, have just created a dataset for only task 1 our next objective is to expand it to all the six tasks upto this point.
+But before we do that, we must check if our model can learn to atleast perform task 1 reasonably well.
+Hence now we must start to build a model for task 1.
 
