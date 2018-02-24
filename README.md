@@ -1,5 +1,6 @@
 ## Conversational Agent
-
+Co-authored by : ***Sourabh Majumdar*** <msourabh970320@gmail.com>
+Co-authored by : ***Tejas Bhatia*** <ted.bhatia@gmail.com>
 ### Objective
 
 We are trying to develop a general purpose conversational agent.
