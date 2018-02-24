@@ -73,9 +73,12 @@ First we separated the user utterances and the bot utterances, then we created a
 Creating the story is a little tricky but not that difficult. Each story is a set of user and bot utterances that has happened upto that point. We just add both of these sentences together to form a list of words that have been spoken untill now.
 Now as we did with the user and bot utterances, we convert the story into a vectorized representation of the words.
 
-### Next Challenge
+### Start Small but do it right
 
 Since we, have just created a dataset for only task 1 our next objective is to expand it to all the six tasks upto this point.
 But before we do that, we must check if our model can learn to atleast perform task 1 reasonably well.
 Hence now we must start to build a model for task 1.
+
+the model is created in the file named ***chat_model.py*** and it has the code for memory network and the decoder model.
+It is still half-baked and we yet have to solve the problem that is arriving with the decoder in inference model.
 
