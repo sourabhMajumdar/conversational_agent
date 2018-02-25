@@ -18,7 +18,7 @@ from keras import backend as K
 latent_dim = 128
 train_story , train_query , train_response , max_len_story , max_len_query , max_len_response , train_input_response = extract_text_data("dataset.txt")
 batch_size = 32
-epochs = 12
+epochs = 2
 # create a vocabulary
 
 # to create a better vocab , we need to extend the user utterance and bot utterance 
@@ -45,6 +45,13 @@ answers_input_train = vectorized_input_response
 answers_train = to_categorical(vectorized_response,num_classes=vocab_size)
 
 # Some important information
+
+print(" shape of inputs_train ")
+print(inputs_train.shape)
+
+print(" shape of queries_train ")
+print(queries_train.shape)
+
 print(" Size of Vocabulary is ")
 print(vocab_size)
 
@@ -65,17 +72,17 @@ idx_to_word = dict()
 for c,i in word_to_idx.items() :
 	idx_to_word[i] = c
 
-
+"""
 for i,c in idx_to_word.items() :
 	print(" Key %d ===> Value %s "%(i,c))
-
+"""
 
 # Now time to create the model
 
 # placeholders
 input_sequence = Input(shape=(max_len_story,))
 question = Input(shape=(max_len_query,))
-decoder_inputs_raw = Input(shape=(None,))
+decoder_inputs_raw = Input(shape=(max_len_response,))
 # encoders
 # embed the input sequence into a sequence of vectors
 input_encoder_m = Sequential()
@@ -161,6 +168,9 @@ model = Model([input_sequence,question,decoder_inputs_raw],decoder_outputs)
 
 model.compile(optimizer='rmsprop',loss='categorical_crossentropy',metrics=['accuracy'])
 
+#model.summary()
+#iyt = input(" Program Paused ")
+
 model.fit([inputs_train,queries_train,answers_input_train],answers_train,batch_size=batch_size,epochs=epochs,validation_split=0.2)
 
 
@@ -168,8 +178,10 @@ model.fit([inputs_train,queries_train,answers_input_train],answers_train,batch_s
 
 encoder_model = Model([input_sequence,question],encoder_states)
 
+
 decoder_state_input_h = Input(shape=(latent_dim,))
 decoder_state_input_c = Input(shape=(latent_dim,))
+
 
 decoder_states_inputs = [decoder_state_input_h, decoder_state_input_c]
 
@@ -179,16 +191,16 @@ decoder_states = [state_h,state_c]
 
 decoder_outputs = decoder_dense(decoder_outputs)
 
-decoder_model = Model([decoder_inputs,decoder_state_input_h,decoder_state_input_c],[decoder_outputs,state_h,state_c])
+decoder_model = Model([decoder_inputs_raw] + decoder_states_inputs,[decoder_outputs] + decoder_states)
 
 
 
 def decode_sequence(input_sequence) :
 	
 	states_value = encoder_model.predict(input_sequence)
-	target_sequence = np.zeros((1,1,vocab_size))
-	target_sequence[0,0,word_to_idx['<begin>']] = 1
-
+	
+	list_of_words = ['<begin>']
+	target_sequence = vectorize_utterance([list_of_words],max_len_response,word_to_idx)
 	stop_condition = False
 
 	decoded_sentence = ''
@@ -197,13 +209,70 @@ def decode_sequence(input_sequence) :
 		sampled_token_index = np.argmax(output_tokens[0,-1,:])
 		sampled_char = idx_to_word[sampled_token_index]
 
-		decoded_sentence += sampled_char
+		decoded_sentence += ' ' + sampled_char
+		list_of_words += [sampled_char]
 
 		if sampled_char == '<end>' or len(decoded_sentence) > max_len_response :
 			stop_condition = True
 
-		target_sequence = np.zeros((1,1,vocab_size))
-		target_sequence[0,0,sampled_token_index] = 1
+		target_sequence = vectorize_utterance([list_of_words],max_len_response,word_to_idx)
 		states_value = [h , c]
 
-	return decoded_senence
+	return decoded_sentence
+
+
+
+my_story = ['<begin>']
+"""
+while(1) :
+	user_utterance_raw = input(" ask the bot something : ")
+
+	my_vec_story = vectorize_utterance([my_story],max_len_story,word_to_idx)
+	
+	user_utterance = user_utterance_raw.lower().strip().split()		# split the user utterance into lower case words without any escape characters
+	
+	user_input = vectorize_utterance([user_utterance],max_len_query,word_to_idx)
+
+	print(" My story is ")
+	print(my_story)
+	print(my_vec_story[0])
+	print(my_vec_story[0].shape)
+	print(type(my_vec_story[0]))
+	#print(train_story[i].shape)
+	print(" My query is ")
+	print(user_utterance)
+	print(user_input[0])
+	print(user_input[0].shape)
+	print(type(user_input[0]))
+
+	bot_utterance = decoder_sequence([my_vec_story[0].reshape(1,86),user_input[0].reshape(1,19)])
+	print(" bot utterance ")
+	print(bot_utterance)
+
+	
+	story_to_append = story.copy()			# this is an important step, don't change it 
+
+	#print(" The Train stoy till now is ")
+	#print(train_story)
+
+	my_story.append(story_to_append)		# append the final list of story to train_story
+
+	story.extend(user_utterance)			# update the story with latest user utterance
+	story.extend(bot_utterance)				# update the story with latest bot utterance
+"""
+for i in range(9) :
+	print(" My story is ")
+	print(train_story[i])
+	print(inputs_train[i])
+	print(inputs_train[i].shape)
+	print(type(inputs_train[i]))
+	#print(train_story[i].shape)
+	print(" My query is ")
+	print(train_query[i])
+	print(queries_train[i])
+	print(queries_train[i].shape)
+	print(type(queries_train[i]))
+	#print(train_query.shape)
+	d_sentence = decode_sequence([inputs_train[i].reshape(1,86),queries_train[i].reshape(1,19)])
+	print(" bot utterance is ")
+	print(d_sentence)
