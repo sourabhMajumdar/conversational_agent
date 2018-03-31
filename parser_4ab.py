@@ -1,4 +1,5 @@
 from keras.preprocessing.sequence import pad_sequences
+#from tensorflow.keras.preprocessing.sequence import pad_sequences
 # This program extracts the data and returns 
 # the story , query and expected response from the file specified by user
 
