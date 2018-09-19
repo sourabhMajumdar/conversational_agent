@@ -1,0 +1,7 @@
+to do:
+output both per response and per dialog accuracy
+add Matching and OOV words
+add tensor board
+bootstrapping with word2vec or glove
+remove stopwords
+bucket padding
