@@ -1,0 +1,121 @@
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Matteo,Tahir,Marco,Simone, would you like to change the recipient ?
+1 destination_name_check Marco
+1 initial_slots_check slots : intent,amount,user_account
+1 amount_check  Checkin 800
+1 api_call Current Tahir 800
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Simone,Samuel,Matteo,Sourabh,Marco,Vevake, would you like to change the recipient ?
+1 api_call Checkin Marco 200
+1 amount_check  Savings 800
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Marco, would you like to change the recipient ?
+1 amount_check  Current 2400
+1 It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 3000 so the maximum you can transfer is 2000, would you like to reduce your amount to this amount ?
+1 amount_check  Checkin 9000
+1 amount_check  Checkin 200
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Vevake,Tahir, would you like to change the recipient ?
+1 amount_check  Checkin 1600
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Simone,Matteo,Vevake, would you like to change the recipient ?
+1 destination_name_check Tahir
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Marco,Simone,Tahir, would you like to change the recipient ?
+1 It seems the amount you provided can't be processed because your transaction limit is 5000 and your current balance is 1300 so the maximum you can transfer is 1300, would you like to reduce your amount to this amount ?
+1 api_call Checkin Marco 1600
+1 api_call Checkin Samuel 2000
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Marco,Vevake,Tahir, would you like to change the recipient ?
+1 destination_name_check Matteo
+1 It seems the amount you provided can't be processed because your transaction limit is 1000 and your current balance is 8000 so the maximum you can transfer is 1000, would you like to reduce your amount to this amount ?
+1 amount_check  Checkin 4500
+1 destination_name_check Samuel
+1 api_call Checkin Matteo 800
+1 api_call Current Tahir 4500
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Vevake,Samuel,Marco, would you like to change the recipient ?
+1 api_call Checkin Marco 800
+1 initial_slots_check slots : intent,destination_name
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Vevake,Tahir,Simone,Sourabh,Marco,Matteo,Samuel, would you like to change the recipient ?
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Samuel,Marco,Serra, would you like to change the recipient ?
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Serra, would you like to change the recipient ?
+1 end_call error in processing transaction
+1 api_call Checkin Serra 200
+1 It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 1300 so the maximum you can transfer is 1300, would you like to reduce your amount to this amount ?
+1 amount_check  Current 9000
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Serra,Samuel,Simone,Matteo, would you like to change the recipient ?
+1 amount_check  Savings 2400
+1 api_call Checkin Sourabh 400
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Samuel,Vevake,Matteo,Simone,Tahir, would you like to change the recipient ?
+1 It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 8000 so the maximum you can transfer is 2000, would you like to reduce your amount to this amount ?
+1 It seems that you have not entered a valid account, you available accounts are Current,Checkin, would you like change the soure account ?
+1 api_call Current Simone 4500
+1 It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+1 It seems the amount you provided can't be processed because your transaction limit is 5000 and your current balance is 8000 so the maximum you can transfer is 5000, would you like to reduce your amount to this amount ?
+1 It seems the amount you provided can't be processed because your transaction limit is 5000 and your current balance is 3000 so the maximum you can transfer is 3000, would you like to reduce your amount to this amount ?
+1 how can i help you today ?
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Matteo, would you like to change the recipient ?
+1 amount_check  Savings 9000
+1 amount_check  Savings 4500
+1 It seems the amount you provided can't be processed because your transaction limit is 1000 and your current balance is 1300 so the maximum you can transfer is 1000, would you like to reduce your amount to this amount ?
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Marco,Sourabh, would you like to change the recipient ?
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Tahir, would you like to change the recipient ?
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Matteo,Sourabh,Samuel, would you like to change the recipient ?
+1 account_check Savings
+1 destination_name_check Simone
+1 api_call Savings Samuel 200
+1 who is the recipient ?
+1 end_call User failed to change the account
+1 It seems that you have not entered a valid account, you available accounts are Current,Savings, would you like change the soure account ?
+1 It seems that you have not entered a valid account, you available accounts are Checkin,Current, would you like change the soure account ?
+1 It seems the amount you provided can't be processed because your transaction limit is 1000 and your current balance is 3000 so the maximum you can transfer is 1000, would you like to reduce your amount to this amount ?
+1 api_call Checkin Serra 1200
+1 It seems that you have not entered a valid account, you available accounts are Checkin, would you like change the soure account ?
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Serra, would you like to change the recipient ?
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Matteo,Simone, would you like to change the recipient ?
+1 It seems that you have not entered a valid account, you available accounts are Savings,Checkin, would you like change the soure account ?
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Simone,Marco,Matteo, would you like to change the recipient ?
+1 amount_check  Current 1600
+1 initial_slots_check slots : intent,amount,destination_name
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Sourabh,Simone,Vevake,Marco,Samuel, would you like to change the recipient ?
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Marco,Samuel, would you like to change the recipient ?
+1 amount_check  Current 4500
+1 account_check Current
+1 initial_slots_check slots : intent,destination_name,amount
+1 amount_check  Savings 1600
+1 It seems that you have not entered a valid account, you available accounts are Current, would you like change the soure account ?
+1 end_call User refused to confirm transaction
+1 api_call Savings Tahir 1300
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Vevake, would you like to change the recipient ?
+1 amount_check  Savings 200
+1 what is the amount ?
+1 destination_name_check Serra
+1 destination_name_check Sourabh
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Matteo,Vevake,Simone, would you like to change the recipient ?
+1 end_call transaction conducted successfully, ciao !!
+1 amount_check  Current 1200
+1 initial_slots_check slots : intent,amount
+1 It seems that you have not entered a valid account, you available accounts are Checkin,Savings, would you like change the soure account ?
+1 initial_slots_check slots : intent,user_account
+1 It seems the amount you provided can't be processed because your transaction limit is 5000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Sourabh,Matteo,Tahir,Marco,Simone, would you like to change the recipient ?
+1 api_call Checkin Simone 200
+1 It seems that you have not entered a valid account, you available accounts are Savings,Current, would you like change the soure account ?
+1 From which account ?
+1 confirm transaction ?
+1 amount_check  Savings 1200
+1 api_call Checkin Samuel 200
+1 amount_check  Checkin 1200
+1 api_call Current Marco 1200
+1 account_check Checkin
+1 end_call Rejected to change the decision
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Samuel,Sourabh, would you like to change the recipient ?
+1 api_call Checkin Serra 1000
+1 amount_check  Current 200
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Vevake,Samuel,Matteo,Tahir, would you like to change the recipient ?
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Sourabh,Serra,Marco,Matteo,Simone, would you like to change the recipient ?
+1 initial_slots_check slots : intent,destination_name,user_account
+1 It seems that you have not entered a valid account, you available accounts are Savings, would you like change the soure account ?
+1 It seems the amount you provided can't be processed because your transaction limit is 1000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+1 amount_check  Current 800
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Matteo,Simone,Samuel, would you like to change the recipient ?
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Matteo,Serra, would you like to change the recipient ?
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Matteo,Vevake,Sourabh, would you like to change the recipient ?
+1 destination_name_check Vevake
+1 initial_slots_check slots : intent,user_account,destination_name
+1 initial_slots_check slots : intent,user_account,amount
+1 amount_check  Checkin 2400
+1 The recipient you are trying to provide doesn't exist, available list of recipients is Serra,Vevake, would you like to change the recipient ?

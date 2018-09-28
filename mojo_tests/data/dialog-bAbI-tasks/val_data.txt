@@ -1,0 +1,931 @@
+1 <SILENCE>	how can i help you today ?
+2 I want to send some money to Tahir	initial_slots_check slots : intent,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Tahir
+4 inform destination_name_check : failed , available list of names : Simone,Marco,Matteo	The recipient you are trying to provide doesn't exist, available list of recipients is Simone,Marco,Matteo, would you like to change the recipient ?
+5 accept	who is the recipient ?
+6 Send them to Matteo	destination_name_check Matteo
+7 inform destination_name_check : success	From which account ?
+8 Prefer the Savings	account_check Savings
+9 inform account_check : failed , availbale list of user accounts : Checkin,Current	It seems that you have not entered a valid account, you available accounts are Checkin,Current, would you like change the soure account ?
+10 accept	From which account ?
+11 take money from Checkin	account_check Checkin
+12 inform account_check : success	what is the amount ?
+13 It is 800	amount_check  Checkin 800
+14 inform amount_check : success	confirm transaction ?
+15 accept	api_call Checkin Matteo 800
+16 inform api_call success	end_call transaction conducted successfully, ciao !!
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer 4500 from my Checkin	initial_slots_check slots : intent,user_account,amount
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Checkin
+4 inform account_check : failed , availbale list of user accounts : Savings,Current	It seems that you have not entered a valid account, you available accounts are Savings,Current, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I need to make a transaction	From which account ?
+3 I select Savings	account_check Savings
+4 inform account_check : failed , availbale list of user accounts : Checkin	It seems that you have not entered a valid account, you available accounts are Checkin, would you like change the soure account ?
+5 accept	From which account ?
+6 Checkin	account_check Checkin
+7 inform account_check : success	who is the recipient ?
+8 The money is for Serra	destination_name_check Serra
+9 inform destination_name_check : failed , available list of names : Samuel,Vevake,Matteo,Simone,Tahir	The recipient you are trying to provide doesn't exist, available list of recipients is Samuel,Vevake,Matteo,Simone,Tahir, would you like to change the recipient ?
+10 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I need to transfer money	From which account ?
+3 take from Checkin	account_check Checkin
+4 inform account_check : failed , availbale list of user accounts : Current	It seems that you have not entered a valid account, you available accounts are Current, would you like change the soure account ?
+5 accept	From which account ?
+6 from my Current	account_check Current
+7 inform account_check : success	who is the recipient ?
+8 Serra is the receiver	destination_name_check Serra
+9 inform destination_name_check : failed , available list of names : Vevake,Samuel,Marco	The recipient you are trying to provide doesn't exist, available list of recipients is Vevake,Samuel,Marco, would you like to change the recipient ?
+10 accept	who is the recipient ?
+11 The money is for Marco	destination_name_check Marco
+12 inform destination_name_check : success	what is the amount ?
+13 200	amount_check  Current 200
+14 inform amount_check : success	confirm transaction ?
+15 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 Could you please transfer 9000 to Vevake	initial_slots_check slots : intent,amount,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Vevake
+4 inform destination_name_check : failed , available list of names : Matteo	The recipient you are trying to provide doesn't exist, available list of recipients is Matteo, would you like to change the recipient ?
+5 accept	who is the recipient ?
+6 the recipient is Marco	destination_name_check Marco
+7 inform destination_name_check : failed , available list of names : Matteo	The recipient you are trying to provide doesn't exist, available list of recipients is Matteo, would you like to change the recipient ?
+8 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 Could you please transfer 9000 to Sourabh	initial_slots_check slots : intent,destination_name,amount
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Sourabh
+4 inform destination_name_check : failed , available list of names : Tahir,Simone,Matteo,Vevake	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Simone,Matteo,Vevake, would you like to change the recipient ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer some money	From which account ?
+3 I select Current	account_check Current
+4 inform account_check : success	who is the recipient ?
+5 Send them to Serra	destination_name_check Serra
+6 inform destination_name_check : success	what is the amount ?
+7 9000	amount_check  Current 9000
+8 inform limit 1000 balance 8000 max_transferable_amt 1000 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 1000 and your current balance is 8000 so the maximum you can transfer is 1000, would you like to reduce your amount to this amount ?
+9 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer 1200	initial_slots_check slots : intent,amount
+3 inform initial_slots_check : success	From which account ?
+4 Current	account_check Current
+5 inform account_check : failed , availbale list of user accounts : Savings	It seems that you have not entered a valid account, you available accounts are Savings, would you like change the soure account ?
+6 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer 9000	initial_slots_check slots : intent,amount
+3 inform initial_slots_check : success	From which account ?
+4 Current	account_check Current
+5 inform account_check : success	amount_check  Current 9000
+6 inform limit 5000 balance 8000 max_transferable_amt 5000 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 5000 and your current balance is 8000 so the maximum you can transfer is 5000, would you like to reduce your amount to this amount ?
+7 accept	who is the recipient ?
+8 Serra is the receiver	confirm transaction ?
+9 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send some money to Sourabh	initial_slots_check slots : intent,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Sourabh
+4 inform destination_name_check : failed , available list of names : Serra,Samuel,Simone,Matteo	The recipient you are trying to provide doesn't exist, available list of recipients is Serra,Samuel,Simone,Matteo, would you like to change the recipient ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to make a money transaction	From which account ?
+3 Checkin	account_check Checkin
+4 inform account_check : success	who is the recipient ?
+5 Send them to Matteo	destination_name_check Matteo
+6 inform destination_name_check : failed , available list of names : Tahir,Marco,Samuel	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Marco,Samuel, would you like to change the recipient ?
+7 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send some money	From which account ?
+3 take money from Checkin	account_check Checkin
+4 inform account_check : failed , availbale list of user accounts : Current	It seems that you have not entered a valid account, you available accounts are Current, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send some money	From which account ?
+3 use Checkin	account_check Checkin
+4 inform account_check : failed , availbale list of user accounts : Current	It seems that you have not entered a valid account, you available accounts are Current, would you like change the soure account ?
+5 accept	From which account ?
+6 withdraw from Current	account_check Current
+7 inform account_check : success	who is the recipient ?
+8 Sourabh	destination_name_check Sourabh
+9 inform destination_name_check : failed , available list of names : Samuel,Marco,Serra	The recipient you are trying to provide doesn't exist, available list of recipients is Samuel,Marco,Serra, would you like to change the recipient ?
+10 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 Send money from Savings	initial_slots_check slots : intent,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Savings
+4 inform account_check : failed , availbale list of user accounts : Checkin	It seems that you have not entered a valid account, you available accounts are Checkin, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send 2400 to Marco	initial_slots_check slots : intent,amount,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Marco
+4 inform destination_name_check : failed , available list of names : Serra,Vevake	The recipient you are trying to provide doesn't exist, available list of recipients is Serra,Vevake, would you like to change the recipient ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer some money from Savings	initial_slots_check slots : intent,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Savings
+4 inform account_check : failed , availbale list of user accounts : Checkin	It seems that you have not entered a valid account, you available accounts are Checkin, would you like change the soure account ?
+5 accept	From which account ?
+6 withdraw from Current	account_check Current
+7 inform account_check : failed , availbale list of user accounts : Checkin	It seems that you have not entered a valid account, you available accounts are Checkin, would you like change the soure account ?
+8 accept	From which account ?
+9 take from Checkin	account_check Checkin
+10 inform account_check : success	who is the recipient ?
+11 Send it to the account of Vevake	destination_name_check Vevake
+12 inform destination_name_check : failed , available list of names : Sourabh,Serra,Marco,Matteo,Simone	The recipient you are trying to provide doesn't exist, available list of recipients is Sourabh,Serra,Marco,Matteo,Simone, would you like to change the recipient ?
+13 accept	who is the recipient ?
+14 Marco is the recipient	destination_name_check Marco
+15 inform destination_name_check : success	what is the amount ?
+16 200 is the total	amount_check  Checkin 200
+17 inform amount_check : success	confirm transaction ?
+18 accept	api_call Checkin Marco 200
+19 inform api_call success	end_call transaction conducted successfully, ciao !!
+
+1 <SILENCE>	how can i help you today ?
+2 Send money from Savings	initial_slots_check slots : intent,user_account
+3 inform initial_slots_check : success	who is the recipient ?
+4 the recipient is Serra	destination_name_check Serra
+5 inform destination_name_check : success	what is the amount ?
+6 select 1200	amount_check  Savings 1200
+7 inform limit 5000 balance 400 max_transferable_amt 400 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 5000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+8 accept	confirm transaction ?
+9 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 I want to transfer money from my Savings to Marco	initial_slots_check slots : intent,user_account,destination_name
+3 inform initial_slots_check : success	what is the amount ?
+4 9000	amount_check  Savings 9000
+5 inform limit 2000 balance 3000 max_transferable_amt 2000 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 3000 so the maximum you can transfer is 2000, would you like to reduce your amount to this amount ?
+6 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 I want to transfer money from my Current to Tahir	initial_slots_check slots : intent,destination_name,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Current
+4 inform account_check : failed , availbale list of user accounts : Savings	It seems that you have not entered a valid account, you available accounts are Savings, would you like change the soure account ?
+5 accept	From which account ?
+6 take money from Checkin	account_check Checkin
+7 inform account_check : failed , availbale list of user accounts : Savings	It seems that you have not entered a valid account, you available accounts are Savings, would you like change the soure account ?
+8 accept	From which account ?
+9 withdraw from Savings	account_check Savings
+10 inform account_check : success	what is the amount ?
+11 roughly 9000	amount_check  Savings 9000
+12 inform limit 2000 balance 1300 max_transferable_amt 1300 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 1300 so the maximum you can transfer is 1300, would you like to reduce your amount to this amount ?
+13 accept	confirm transaction ?
+14 accept	api_call Savings Tahir 1300
+15 inform api_call success	end_call transaction conducted successfully, ciao !!
+
+1 <SILENCE>	how can i help you today ?
+2 Can you transfer some money ?	From which account ?
+3 Prefer the Savings	account_check Savings
+4 inform account_check : success	who is the recipient ?
+5 The money is for Serra	destination_name_check Serra
+6 inform destination_name_check : success	what is the amount ?
+7 let's say 4500	amount_check  Savings 4500
+8 inform limit 2000 balance 3000 max_transferable_amt 2000 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 3000 so the maximum you can transfer is 2000, would you like to reduce your amount to this amount ?
+9 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 Please transfer 1600 from my Checkin	initial_slots_check slots : intent,user_account,amount
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Checkin
+4 inform account_check : failed , availbale list of user accounts : Savings	It seems that you have not entered a valid account, you available accounts are Savings, would you like change the soure account ?
+5 accept	From which account ?
+6 withdraw from Savings	account_check Savings
+7 inform account_check : success	amount_check  Savings 1600
+8 inform limit 2000 balance 400 max_transferable_amt 400 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+9 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 transfer money	From which account ?
+3 Prefer the Current	account_check Current
+4 inform account_check : failed , availbale list of user accounts : Savings	It seems that you have not entered a valid account, you available accounts are Savings, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 transfer money	From which account ?
+3 use Current	account_check Current
+4 inform account_check : success	who is the recipient ?
+5 Simone is the recipient	destination_name_check Simone
+6 inform destination_name_check : failed , available list of names : Tahir	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir, would you like to change the recipient ?
+7 accept	who is the recipient ?
+8 Serra is the receiver	destination_name_check Serra
+9 inform destination_name_check : failed , available list of names : Tahir	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir, would you like to change the recipient ?
+10 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 Send money from Current	initial_slots_check slots : intent,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Current
+4 inform account_check : failed , availbale list of user accounts : Savings	It seems that you have not entered a valid account, you available accounts are Savings, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send some money to Vevake	initial_slots_check slots : intent,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Vevake
+4 inform destination_name_check : failed , available list of names : Tahir,Matteo,Simone	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Matteo,Simone, would you like to change the recipient ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I need to transfer money	From which account ?
+3 take money from Checkin	account_check Checkin
+4 inform account_check : failed , availbale list of user accounts : Savings,Current	It seems that you have not entered a valid account, you available accounts are Savings,Current, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer 800 from my Current	initial_slots_check slots : intent,amount,user_account
+3 inform initial_slots_check : success	who is the recipient ?
+4 I choose Tahir	confirm transaction ?
+5 accept	api_call Current Tahir 800
+6 inform api_call failed	end_call error in processing transaction
+
+1 <SILENCE>	how can i help you today ?
+2 I want to transfer money from my Current to Marco	initial_slots_check slots : intent,user_account,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Current
+4 inform account_check : failed , availbale list of user accounts : Checkin	It seems that you have not entered a valid account, you available accounts are Checkin, would you like change the soure account ?
+5 accept	From which account ?
+6 my Checkin account	account_check Checkin
+7 inform account_check : success	destination_name_check Marco
+8 inform destination_name_check : failed , available list of names : Matteo	The recipient you are trying to provide doesn't exist, available list of recipients is Matteo, would you like to change the recipient ?
+9 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send some money to Vevake	initial_slots_check slots : intent,destination_name
+3 inform initial_slots_check : success	From which account ?
+4 from my Checkin	account_check Checkin
+5 inform account_check : failed , availbale list of user accounts : Savings,Current	It seems that you have not entered a valid account, you available accounts are Savings,Current, would you like change the soure account ?
+6 accept	From which account ?
+7 use the Current for the transaction	account_check Current
+8 inform account_check : success	what is the amount ?
+9 4500 is the total	amount_check  Current 4500
+10 inform limit 2000 balance 400 max_transferable_amt 400 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+11 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer 200 from my Checkin	initial_slots_check slots : intent,user_account,amount
+3 inform initial_slots_check : success	who is the recipient ?
+4 The money is for Samuel	confirm transaction ?
+5 accept	api_call Checkin Samuel 200
+6 inform api_call success	end_call transaction conducted successfully, ciao !!
+
+1 <SILENCE>	how can i help you today ?
+2 Please transfer 200 from my Savings	initial_slots_check slots : intent,amount,user_account
+3 inform initial_slots_check : success	who is the recipient ?
+4 The money is for Samuel	confirm transaction ?
+5 accept	api_call Savings Samuel 200
+6 inform api_call failed	end_call error in processing transaction
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send 1200 to Vevake	initial_slots_check slots : intent,destination_name,amount
+3 inform initial_slots_check : success	From which account ?
+4 Prefer the Current	confirm transaction ?
+5 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 Can you transfer some money ?	From which account ?
+3 from my Current	account_check Current
+4 inform account_check : failed , availbale list of user accounts : Checkin	It seems that you have not entered a valid account, you available accounts are Checkin, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 Send money to Serra	initial_slots_check slots : intent,destination_name
+3 inform initial_slots_check : success	From which account ?
+4 from my Checkin	account_check Checkin
+5 inform account_check : success	what is the amount ?
+6 select 200	amount_check  Checkin 200
+7 inform amount_check : success	confirm transaction ?
+8 accept	api_call Checkin Serra 200
+9 inform api_call failed	end_call error in processing transaction
+
+1 <SILENCE>	how can i help you today ?
+2 transfer money	From which account ?
+3 Prefer the Checkin	account_check Checkin
+4 inform account_check : failed , availbale list of user accounts : Current	It seems that you have not entered a valid account, you available accounts are Current, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send some money to Sourabh	initial_slots_check slots : intent,destination_name
+3 inform initial_slots_check : success	From which account ?
+4 my Savings account	account_check Savings
+5 inform account_check : failed , availbale list of user accounts : Current	It seems that you have not entered a valid account, you available accounts are Current, would you like change the soure account ?
+6 accept	From which account ?
+7 from my Checkin	account_check Checkin
+8 inform account_check : failed , availbale list of user accounts : Current	It seems that you have not entered a valid account, you available accounts are Current, would you like change the soure account ?
+9 accept	From which account ?
+10 Prefer the Savings	account_check Savings
+11 inform account_check : failed , availbale list of user accounts : Current	It seems that you have not entered a valid account, you available accounts are Current, would you like change the soure account ?
+12 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to take some money from my Savings for Sourabh	initial_slots_check slots : intent,destination_name,user_account
+3 inform initial_slots_check : success	what is the amount ?
+4 select 9000	amount_check  Savings 9000
+5 inform limit 5000 balance 3000 max_transferable_amt 3000 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 5000 and your current balance is 3000 so the maximum you can transfer is 3000, would you like to reduce your amount to this amount ?
+6 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to make a money transaction	From which account ?
+3 take money from Savings	account_check Savings
+4 inform account_check : failed , availbale list of user accounts : Current,Checkin	It seems that you have not entered a valid account, you available accounts are Current,Checkin, would you like change the soure account ?
+5 accept	From which account ?
+6 use the Checkin for the transaction	account_check Checkin
+7 inform account_check : success	who is the recipient ?
+8 Samuel	destination_name_check Samuel
+9 inform destination_name_check : success	what is the amount ?
+10 Send 4500	amount_check  Checkin 4500
+11 inform limit 2000 balance 1300 max_transferable_amt 1300 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 1300 so the maximum you can transfer is 1300, would you like to reduce your amount to this amount ?
+12 accept	confirm transaction ?
+13 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 I want to transfer money from my Savings to Sourabh	initial_slots_check slots : intent,user_account,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Savings
+4 inform account_check : failed , availbale list of user accounts : Current	It seems that you have not entered a valid account, you available accounts are Current, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send some money to Marco	initial_slots_check slots : intent,destination_name
+3 inform initial_slots_check : success	From which account ?
+4 withdraw from Current	account_check Current
+5 inform account_check : success	what is the amount ?
+6 select 1200	amount_check  Current 1200
+7 inform amount_check : success	confirm transaction ?
+8 accept	api_call Current Marco 1200
+9 inform api_call failed	end_call error in processing transaction
+
+1 <SILENCE>	how can i help you today ?
+2 Could you please transfer 9000 to Matteo	initial_slots_check slots : intent,amount,destination_name
+3 inform initial_slots_check : success	From which account ?
+4 I select Checkin	confirm transaction ?
+5 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send some money	From which account ?
+3 take from Savings	account_check Savings
+4 inform account_check : success	who is the recipient ?
+5 the recipient is Sourabh	destination_name_check Sourabh
+6 inform destination_name_check : success	what is the amount ?
+7 select 4500	amount_check  Savings 4500
+8 inform limit 5000 balance 3000 max_transferable_amt 3000 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 5000 and your current balance is 3000 so the maximum you can transfer is 3000, would you like to reduce your amount to this amount ?
+9 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 I want to transfer money from my Savings to Vevake	initial_slots_check slots : intent,destination_name,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Vevake
+4 inform destination_name_check : failed , available list of names : Matteo,Tahir,Marco,Simone	The recipient you are trying to provide doesn't exist, available list of recipients is Matteo,Tahir,Marco,Simone, would you like to change the recipient ?
+5 accept	who is the recipient ?
+6 The money is for Sourabh	destination_name_check Sourabh
+7 inform destination_name_check : failed , available list of names : Matteo,Tahir,Marco,Simone	The recipient you are trying to provide doesn't exist, available list of recipients is Matteo,Tahir,Marco,Simone, would you like to change the recipient ?
+8 accept	who is the recipient ?
+9 the recipient is Simone	destination_name_check Simone
+10 inform destination_name_check : success	what is the amount ?
+11 4500 is the total	amount_check  Savings 4500
+12 inform limit 5000 balance 400 max_transferable_amt 400 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 5000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+13 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to make a money transaction	From which account ?
+3 use the Current for the transaction	account_check Current
+4 inform account_check : failed , availbale list of user accounts : Checkin	It seems that you have not entered a valid account, you available accounts are Checkin, would you like change the soure account ?
+5 accept	From which account ?
+6 use the Savings for the transaction	account_check Savings
+7 inform account_check : failed , availbale list of user accounts : Checkin	It seems that you have not entered a valid account, you available accounts are Checkin, would you like change the soure account ?
+8 accept	From which account ?
+9 take money from Checkin	account_check Checkin
+10 inform account_check : success	who is the recipient ?
+11 Send them to Marco	destination_name_check Marco
+12 inform destination_name_check : success	what is the amount ?
+13 let's say 800	amount_check  Checkin 800
+14 inform amount_check : success	confirm transaction ?
+15 accept	api_call Checkin Marco 800
+16 inform api_call failed	end_call error in processing transaction
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer some money from Savings	initial_slots_check slots : intent,user_account
+3 inform initial_slots_check : success	who is the recipient ?
+4 the recipient is Simone	destination_name_check Simone
+5 inform destination_name_check : failed , available list of names : Vevake,Tahir	The recipient you are trying to provide doesn't exist, available list of recipients is Vevake,Tahir, would you like to change the recipient ?
+6 accept	who is the recipient ?
+7 Matteo	destination_name_check Matteo
+8 inform destination_name_check : failed , available list of names : Vevake,Tahir	The recipient you are trying to provide doesn't exist, available list of recipients is Vevake,Tahir, would you like to change the recipient ?
+9 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer some money	From which account ?
+3 Prefer the Current	account_check Current
+4 inform account_check : failed , availbale list of user accounts : Checkin,Savings	It seems that you have not entered a valid account, you available accounts are Checkin,Savings, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 Can you transfer some money ?	From which account ?
+3 from my Checkin	account_check Checkin
+4 inform account_check : success	who is the recipient ?
+5 Samuel is the receiver	destination_name_check Samuel
+6 inform destination_name_check : failed , available list of names : Matteo,Vevake,Sourabh	The recipient you are trying to provide doesn't exist, available list of recipients is Matteo,Vevake,Sourabh, would you like to change the recipient ?
+7 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer some money from Current	initial_slots_check slots : intent,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Current
+4 inform account_check : failed , availbale list of user accounts : Checkin	It seems that you have not entered a valid account, you available accounts are Checkin, would you like change the soure account ?
+5 accept	From which account ?
+6 Savings	account_check Savings
+7 inform account_check : failed , availbale list of user accounts : Checkin	It seems that you have not entered a valid account, you available accounts are Checkin, would you like change the soure account ?
+8 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 Send money to Serra	initial_slots_check slots : intent,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Serra
+4 inform destination_name_check : failed , available list of names : Samuel,Sourabh	The recipient you are trying to provide doesn't exist, available list of recipients is Samuel,Sourabh, would you like to change the recipient ?
+5 accept	who is the recipient ?
+6 Send them to Vevake	destination_name_check Vevake
+7 inform destination_name_check : failed , available list of names : Samuel,Sourabh	The recipient you are trying to provide doesn't exist, available list of recipients is Samuel,Sourabh, would you like to change the recipient ?
+8 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer some money from Savings	initial_slots_check slots : intent,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Savings
+4 inform account_check : failed , availbale list of user accounts : Current,Checkin	It seems that you have not entered a valid account, you available accounts are Current,Checkin, would you like change the soure account ?
+5 accept	From which account ?
+6 take money from Checkin	account_check Checkin
+7 inform account_check : success	who is the recipient ?
+8 Matteo is the recipient	destination_name_check Matteo
+9 inform destination_name_check : success	what is the amount ?
+10 let's make 9000	amount_check  Checkin 9000
+11 inform limit 5000 balance 3000 max_transferable_amt 3000 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 5000 and your current balance is 3000 so the maximum you can transfer is 3000, would you like to reduce your amount to this amount ?
+12 accept	confirm transaction ?
+13 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send some money to Serra	initial_slots_check slots : intent,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Serra
+4 inform destination_name_check : failed , available list of names : Simone,Samuel,Matteo,Sourabh,Marco,Vevake	The recipient you are trying to provide doesn't exist, available list of recipients is Simone,Samuel,Matteo,Sourabh,Marco,Vevake, would you like to change the recipient ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I need to make a transaction	From which account ?
+3 use the Checkin for the transaction	account_check Checkin
+4 inform account_check : failed , availbale list of user accounts : Savings	It seems that you have not entered a valid account, you available accounts are Savings, would you like change the soure account ?
+5 accept	From which account ?
+6 withdraw from Savings	account_check Savings
+7 inform account_check : success	who is the recipient ?
+8 I choose Samuel	destination_name_check Samuel
+9 inform destination_name_check : success	what is the amount ?
+10 2400 is the total	amount_check  Savings 2400
+11 inform limit 2000 balance 400 max_transferable_amt 400 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+12 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send some money	From which account ?
+3 use the Savings for the transaction	account_check Savings
+4 inform account_check : failed , availbale list of user accounts : Current	It seems that you have not entered a valid account, you available accounts are Current, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer 800 from my Savings	initial_slots_check slots : intent,amount,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	amount_check  Savings 800
+4 inform limit 5000 balance 400 max_transferable_amt 400 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 5000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+5 accept	who is the recipient ?
+6 Marco is the receiver	confirm transaction ?
+7 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer some money from Current	initial_slots_check slots : intent,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Current
+4 inform account_check : failed , availbale list of user accounts : Savings	It seems that you have not entered a valid account, you available accounts are Savings, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to take some money from my Checkin for Matteo	initial_slots_check slots : intent,user_account,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Matteo
+4 inform destination_name_check : failed , available list of names : Marco,Sourabh	The recipient you are trying to provide doesn't exist, available list of recipients is Marco,Sourabh, would you like to change the recipient ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I need to make a transaction	From which account ?
+3 take from Checkin	account_check Checkin
+4 inform account_check : success	who is the recipient ?
+5 Serra	destination_name_check Serra
+6 inform destination_name_check : success	what is the amount ?
+7 Send 4500	amount_check  Checkin 4500
+8 inform limit 1000 balance 3000 max_transferable_amt 1000 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 1000 and your current balance is 3000 so the maximum you can transfer is 1000, would you like to reduce your amount to this amount ?
+9 accept	confirm transaction ?
+10 accept	api_call Checkin Serra 1000
+11 inform api_call failed	end_call error in processing transaction
+
+1 <SILENCE>	how can i help you today ?
+2 Please transfer 800 from my Current	initial_slots_check slots : intent,user_account,amount
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Current
+4 inform account_check : failed , availbale list of user accounts : Savings	It seems that you have not entered a valid account, you available accounts are Savings, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send some money to Tahir	initial_slots_check slots : intent,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Tahir
+4 inform destination_name_check : failed , available list of names : Sourabh,Simone,Vevake,Marco,Samuel	The recipient you are trying to provide doesn't exist, available list of recipients is Sourabh,Simone,Vevake,Marco,Samuel, would you like to change the recipient ?
+5 accept	who is the recipient ?
+6 The money is for Serra	destination_name_check Serra
+7 inform destination_name_check : failed , available list of names : Sourabh,Simone,Vevake,Marco,Samuel	The recipient you are trying to provide doesn't exist, available list of recipients is Sourabh,Simone,Vevake,Marco,Samuel, would you like to change the recipient ?
+8 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 Transfer money please	From which account ?
+3 use Checkin	account_check Checkin
+4 inform account_check : success	who is the recipient ?
+5 The money is for Tahir	destination_name_check Tahir
+6 inform destination_name_check : success	what is the amount ?
+7 2400 is ok	amount_check  Checkin 2400
+8 inform limit 1000 balance 1300 max_transferable_amt 1000 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 1000 and your current balance is 1300 so the maximum you can transfer is 1000, would you like to reduce your amount to this amount ?
+9 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 Send Money	From which account ?
+3 take money from Current	account_check Current
+4 inform account_check : success	who is the recipient ?
+5 Serra	destination_name_check Serra
+6 inform destination_name_check : failed , available list of names : Vevake,Tahir,Simone,Sourabh,Marco,Matteo,Samuel	The recipient you are trying to provide doesn't exist, available list of recipients is Vevake,Tahir,Simone,Sourabh,Marco,Matteo,Samuel, would you like to change the recipient ?
+7 accept	who is the recipient ?
+8 Send it to the account of Simone	destination_name_check Simone
+9 inform destination_name_check : success	what is the amount ?
+10 It is 4500	amount_check  Current 4500
+11 inform amount_check : success	confirm transaction ?
+12 accept	api_call Current Simone 4500
+13 inform api_call success	end_call transaction conducted successfully, ciao !!
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to take some money from my Savings for Sourabh	initial_slots_check slots : intent,user_account,destination_name
+3 inform initial_slots_check : success	what is the amount ?
+4 2400 euros	amount_check  Savings 2400
+5 inform amount_check : success	confirm transaction ?
+6 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to take some money from my Current for Matteo	initial_slots_check slots : intent,destination_name,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Matteo
+4 inform destination_name_check : failed , available list of names : Marco,Vevake,Tahir	The recipient you are trying to provide doesn't exist, available list of recipients is Marco,Vevake,Tahir, would you like to change the recipient ?
+5 accept	who is the recipient ?
+6 Simone is the recipient	destination_name_check Simone
+7 inform destination_name_check : failed , available list of names : Marco,Vevake,Tahir	The recipient you are trying to provide doesn't exist, available list of recipients is Marco,Vevake,Tahir, would you like to change the recipient ?
+8 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I want to transfer money from my Current to Tahir	initial_slots_check slots : intent,user_account,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Current
+4 inform account_check : failed , availbale list of user accounts : Savings,Checkin	It seems that you have not entered a valid account, you available accounts are Savings,Checkin, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 Send money to Marco	initial_slots_check slots : intent,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Marco
+4 inform destination_name_check : failed , available list of names : Serra	The recipient you are trying to provide doesn't exist, available list of recipients is Serra, would you like to change the recipient ?
+5 accept	who is the recipient ?
+6 it's for Simone	destination_name_check Simone
+7 inform destination_name_check : failed , available list of names : Serra	The recipient you are trying to provide doesn't exist, available list of recipients is Serra, would you like to change the recipient ?
+8 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 Transfer 9000	initial_slots_check slots : intent,amount
+3 inform initial_slots_check : success	From which account ?
+4 use the Checkin for the transaction	account_check Checkin
+5 inform account_check : success	amount_check  Checkin 9000
+6 inform limit 1000 balance 3000 max_transferable_amt 1000 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 1000 and your current balance is 3000 so the maximum you can transfer is 1000, would you like to reduce your amount to this amount ?
+7 accept	who is the recipient ?
+8 Send them to Marco	confirm transaction ?
+9 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 I want to transfer money from my Checkin to Serra	initial_slots_check slots : intent,user_account,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Serra
+4 inform destination_name_check : failed , available list of names : Sourabh,Matteo,Tahir,Marco,Simone	The recipient you are trying to provide doesn't exist, available list of recipients is Sourabh,Matteo,Tahir,Marco,Simone, would you like to change the recipient ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to take some money from my Current for Sourabh	initial_slots_check slots : intent,destination_name,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Sourabh
+4 inform destination_name_check : failed , available list of names : Matteo,Simone,Samuel	The recipient you are trying to provide doesn't exist, available list of recipients is Matteo,Simone,Samuel, would you like to change the recipient ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 transfer money	From which account ?
+3 take money from Current	account_check Current
+4 inform account_check : failed , availbale list of user accounts : Savings,Checkin	It seems that you have not entered a valid account, you available accounts are Savings,Checkin, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer some money from Checkin	initial_slots_check slots : intent,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Checkin
+4 inform account_check : failed , availbale list of user accounts : Current	It seems that you have not entered a valid account, you available accounts are Current, would you like change the soure account ?
+5 accept	From which account ?
+6 I select Current	account_check Current
+7 inform account_check : success	who is the recipient ?
+8 Send this money to Serra	destination_name_check Serra
+9 inform destination_name_check : failed , available list of names : Marco,Simone,Tahir	The recipient you are trying to provide doesn't exist, available list of recipients is Marco,Simone,Tahir, would you like to change the recipient ?
+10 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 Transfer 9000	initial_slots_check slots : intent,amount
+3 inform initial_slots_check : success	From which account ?
+4 Prefer the Checkin	account_check Checkin
+5 inform account_check : success	amount_check  Checkin 9000
+6 inform limit 1000 balance 400 max_transferable_amt 400 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 1000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+7 accept	who is the recipient ?
+8 Send this money to Sourabh	confirm transaction ?
+9 accept	api_call Checkin Sourabh 400
+10 inform api_call failed	end_call error in processing transaction
+
+1 <SILENCE>	how can i help you today ?
+2 Could you please transfer 4500 to Tahir	initial_slots_check slots : intent,amount,destination_name
+3 inform initial_slots_check : success	From which account ?
+4 I select Current	confirm transaction ?
+5 accept	api_call Current Tahir 4500
+6 inform api_call failed	end_call error in processing transaction
+
+1 <SILENCE>	how can i help you today ?
+2 Could you please transfer 9000 to Simone	initial_slots_check slots : intent,amount,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Simone
+4 inform destination_name_check : failed , available list of names : Tahir,Matteo,Sourabh,Samuel	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Matteo,Sourabh,Samuel, would you like to change the recipient ?
+5 accept	who is the recipient ?
+6 Send this money to Serra	destination_name_check Serra
+7 inform destination_name_check : failed , available list of names : Tahir,Matteo,Sourabh,Samuel	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Matteo,Sourabh,Samuel, would you like to change the recipient ?
+8 accept	who is the recipient ?
+9 Send it to the account of Simone	destination_name_check Simone
+10 inform destination_name_check : failed , available list of names : Tahir,Matteo,Sourabh,Samuel	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Matteo,Sourabh,Samuel, would you like to change the recipient ?
+11 accept	who is the recipient ?
+12 it's for Serra	destination_name_check Serra
+13 inform destination_name_check : failed , available list of names : Tahir,Matteo,Sourabh,Samuel	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Matteo,Sourabh,Samuel, would you like to change the recipient ?
+14 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 Send money from Current	initial_slots_check slots : intent,user_account
+3 inform initial_slots_check : success	who is the recipient ?
+4 Send it to the account of Serra	destination_name_check Serra
+5 inform destination_name_check : success	what is the amount ?
+6 let's say 800	amount_check  Current 800
+7 inform limit 2000 balance 400 max_transferable_amt 400 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+8 accept	confirm transaction ?
+9 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 Please Transfer money	From which account ?
+3 withdraw from Savings	account_check Savings
+4 inform account_check : failed , availbale list of user accounts : Checkin	It seems that you have not entered a valid account, you available accounts are Checkin, would you like change the soure account ?
+5 accept	From which account ?
+6 Prefer the Current	account_check Current
+7 inform account_check : failed , availbale list of user accounts : Checkin	It seems that you have not entered a valid account, you available accounts are Checkin, would you like change the soure account ?
+8 accept	From which account ?
+9 take from Checkin	account_check Checkin
+10 inform account_check : success	who is the recipient ?
+11 the recipient is Simone	destination_name_check Simone
+12 inform destination_name_check : success	what is the amount ?
+13 let's say 1600	amount_check  Checkin 1600
+14 inform amount_check : success	confirm transaction ?
+15 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to make a money transaction	From which account ?
+3 take money from Savings	account_check Savings
+4 inform account_check : failed , availbale list of user accounts : Current,Checkin	It seems that you have not entered a valid account, you available accounts are Current,Checkin, would you like change the soure account ?
+5 accept	From which account ?
+6 withdraw from Current	account_check Current
+7 inform account_check : success	who is the recipient ?
+8 Send them to Tahir	destination_name_check Tahir
+9 inform destination_name_check : failed , available list of names : Serra	The recipient you are trying to provide doesn't exist, available list of recipients is Serra, would you like to change the recipient ?
+10 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 Please transfer 200 from my Current	initial_slots_check slots : intent,user_account,amount
+3 inform initial_slots_check : success	who is the recipient ?
+4 Marco is the recipient	confirm transaction ?
+5 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 Send money to Matteo	initial_slots_check slots : intent,destination_name
+3 inform initial_slots_check : success	From which account ?
+4 withdraw from Current	account_check Current
+5 inform account_check : success	what is the amount ?
+6 roughly 2400	amount_check  Current 2400
+7 inform limit 1000 balance 400 max_transferable_amt 400 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 1000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+8 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 Please Transfer money	From which account ?
+3 Prefer the Checkin	account_check Checkin
+4 inform account_check : success	who is the recipient ?
+5 Sourabh is the receiver	destination_name_check Sourabh
+6 inform destination_name_check : failed , available list of names : Vevake	The recipient you are trying to provide doesn't exist, available list of recipients is Vevake, would you like to change the recipient ?
+7 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to take some money from my Checkin for Matteo	initial_slots_check slots : intent,user_account,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Checkin
+4 inform account_check : failed , availbale list of user accounts : Savings	It seems that you have not entered a valid account, you available accounts are Savings, would you like change the soure account ?
+5 accept	From which account ?
+6 my Savings account	account_check Savings
+7 inform account_check : success	destination_name_check Matteo
+8 inform destination_name_check : failed , available list of names : Tahir,Serra	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Serra, would you like to change the recipient ?
+9 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to make a money transaction	From which account ?
+3 take money from Checkin	account_check Checkin
+4 inform account_check : failed , availbale list of user accounts : Savings	It seems that you have not entered a valid account, you available accounts are Savings, would you like change the soure account ?
+5 accept	From which account ?
+6 from my Savings	account_check Savings
+7 inform account_check : success	who is the recipient ?
+8 the recipient is Marco	destination_name_check Marco
+9 inform destination_name_check : success	what is the amount ?
+10 4500	amount_check  Savings 4500
+11 inform limit 5000 balance 1300 max_transferable_amt 1300 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 5000 and your current balance is 1300 so the maximum you can transfer is 1300, would you like to reduce your amount to this amount ?
+12 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 Send Money	From which account ?
+3 I select Checkin	account_check Checkin
+4 inform account_check : success	who is the recipient ?
+5 Send it to the account of Serra	destination_name_check Serra
+6 inform destination_name_check : success	what is the amount ?
+7 4500 euros	amount_check  Checkin 4500
+8 inform limit 1000 balance 3000 max_transferable_amt 1000 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 1000 and your current balance is 3000 so the maximum you can transfer is 1000, would you like to reduce your amount to this amount ?
+9 accept	confirm transaction ?
+10 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 Could you please transfer 800 to Serra	initial_slots_check slots : intent,amount,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Serra
+4 inform destination_name_check : failed , available list of names : Tahir,Marco	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Marco, would you like to change the recipient ?
+5 accept	who is the recipient ?
+6 Send them to Vevake	destination_name_check Vevake
+7 inform destination_name_check : failed , available list of names : Tahir,Marco	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Marco, would you like to change the recipient ?
+8 accept	who is the recipient ?
+9 Samuel is the receiver	destination_name_check Samuel
+10 inform destination_name_check : failed , available list of names : Tahir,Marco	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Marco, would you like to change the recipient ?
+11 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send 200 to Matteo	initial_slots_check slots : intent,amount,destination_name
+3 inform initial_slots_check : success	From which account ?
+4 take money from Current	confirm transaction ?
+5 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 transfer money	From which account ?
+3 I select Current	account_check Current
+4 inform account_check : success	who is the recipient ?
+5 the recipient is Matteo	destination_name_check Matteo
+6 inform destination_name_check : success	what is the amount ?
+7 let's say 1600	amount_check  Current 1600
+8 inform limit 2000 balance 400 max_transferable_amt 400 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+9 accept	confirm transaction ?
+10 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer 1600 from my Checkin	initial_slots_check slots : intent,amount,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	amount_check  Checkin 1600
+4 inform limit 2000 balance 400 max_transferable_amt 400 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+5 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 Could you please transfer 200 to Simone	initial_slots_check slots : intent,amount,destination_name
+3 inform initial_slots_check : success	From which account ?
+4 take from Checkin	confirm transaction ?
+5 accept	api_call Checkin Simone 200
+6 inform api_call failed	end_call error in processing transaction
+
+1 <SILENCE>	how can i help you today ?
+2 Transfer 200	initial_slots_check slots : intent,amount
+3 inform initial_slots_check : success	From which account ?
+4 withdraw from Checkin	account_check Checkin
+5 inform account_check : failed , availbale list of user accounts : Current	It seems that you have not entered a valid account, you available accounts are Current, would you like change the soure account ?
+6 accept	From which account ?
+7 take from Current	account_check Current
+8 inform account_check : success	amount_check  Current 200
+9 inform amount_check : success	who is the recipient ?
+10 Send this money to Vevake	confirm transaction ?
+11 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 Please Transfer money	From which account ?
+3 take from Checkin	account_check Checkin
+4 inform account_check : success	who is the recipient ?
+5 Send it to the account of Marco	destination_name_check Marco
+6 inform destination_name_check : failed , available list of names : Vevake,Samuel,Matteo,Tahir	The recipient you are trying to provide doesn't exist, available list of recipients is Vevake,Samuel,Matteo,Tahir, would you like to change the recipient ?
+7 accept	who is the recipient ?
+8 I choose Serra	destination_name_check Serra
+9 inform destination_name_check : failed , available list of names : Vevake,Samuel,Matteo,Tahir	The recipient you are trying to provide doesn't exist, available list of recipients is Vevake,Samuel,Matteo,Tahir, would you like to change the recipient ?
+10 accept	who is the recipient ?
+11 I choose Simone	destination_name_check Simone
+12 inform destination_name_check : failed , available list of names : Vevake,Samuel,Matteo,Tahir	The recipient you are trying to provide doesn't exist, available list of recipients is Vevake,Samuel,Matteo,Tahir, would you like to change the recipient ?
+13 accept	who is the recipient ?
+14 The money is for Tahir	destination_name_check Tahir
+15 inform destination_name_check : success	what is the amount ?
+16 let's make 1200	amount_check  Checkin 1200
+17 inform amount_check : success	confirm transaction ?
+18 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 Send money from Savings	initial_slots_check slots : intent,user_account
+3 inform initial_slots_check : success	who is the recipient ?
+4 Send this money to Vevake	destination_name_check Vevake
+5 inform destination_name_check : success	what is the amount ?
+6 let's say 200	amount_check  Savings 200
+7 inform amount_check : success	confirm transaction ?
+8 reject	end_call User refused to confirm transaction
+
+1 <SILENCE>	how can i help you today ?
+2 transfer money	From which account ?
+3 use Savings	account_check Savings
+4 inform account_check : failed , availbale list of user accounts : Checkin	It seems that you have not entered a valid account, you available accounts are Checkin, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I want to send some money	From which account ?
+3 take money from Checkin	account_check Checkin
+4 inform account_check : failed , availbale list of user accounts : Current,Savings	It seems that you have not entered a valid account, you available accounts are Current,Savings, would you like change the soure account ?
+5 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 Could you please transfer 1200 to Vevake	initial_slots_check slots : intent,amount,destination_name
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Vevake
+4 inform destination_name_check : failed , available list of names : Serra	The recipient you are trying to provide doesn't exist, available list of recipients is Serra, would you like to change the recipient ?
+5 accept	who is the recipient ?
+6 Send them to Serra	destination_name_check Serra
+7 inform destination_name_check : success	From which account ?
+8 I select Checkin	confirm transaction ?
+9 accept	api_call Checkin Serra 1200
+10 inform api_call success	end_call transaction conducted successfully, ciao !!
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to take some money from my Savings for Matteo	initial_slots_check slots : intent,destination_name,user_account
+3 inform initial_slots_check : success	what is the amount ?
+4 2400	amount_check  Savings 2400
+5 inform limit 1000 balance 1300 max_transferable_amt 1000 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 1000 and your current balance is 1300 so the maximum you can transfer is 1000, would you like to reduce your amount to this amount ?
+6 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer 2400 from my Savings	initial_slots_check slots : intent,amount,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	account_check Savings
+4 inform account_check : failed , availbale list of user accounts : Current,Checkin	It seems that you have not entered a valid account, you available accounts are Current,Checkin, would you like change the soure account ?
+5 accept	From which account ?
+6 withdraw from Current	account_check Current
+7 inform account_check : success	amount_check  Current 2400
+8 inform limit 2000 balance 1300 max_transferable_amt 1300 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 1300 so the maximum you can transfer is 1300, would you like to reduce your amount to this amount ?
+9 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 I want to transfer money from my Current to Matteo	initial_slots_check slots : intent,destination_name,user_account
+3 inform initial_slots_check : success	what is the amount ?
+4 Send 1600	amount_check  Current 1600
+5 inform limit 2000 balance 400 max_transferable_amt 400 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 400 so the maximum you can transfer is 400, would you like to reduce your amount to this amount ?
+6 reject	end_call Rejected to change the decision
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to transfer some money from Checkin	initial_slots_check slots : intent,user_account
+3 inform initial_slots_check : success	who is the recipient ?
+4 Marco is the recipient	destination_name_check Marco
+5 inform destination_name_check : success	what is the amount ?
+6 1600 euros	amount_check  Checkin 1600
+7 inform amount_check : success	confirm transaction ?
+8 accept	api_call Checkin Marco 1600
+9 inform api_call failed	end_call error in processing transaction
+
+1 <SILENCE>	how can i help you today ?
+2 Please Transfer money	From which account ?
+3 my Savings account	account_check Savings
+4 inform account_check : success	who is the recipient ?
+5 Send this money to Simone	destination_name_check Simone
+6 inform destination_name_check : failed , available list of names : Matteo,Serra	The recipient you are trying to provide doesn't exist, available list of recipients is Matteo,Serra, would you like to change the recipient ?
+7 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 I would like to take some money from my Savings for Marco	initial_slots_check slots : intent,destination_name,user_account
+3 inform initial_slots_check : failed, one or more slots are faulty	destination_name_check Marco
+4 inform destination_name_check : failed , available list of names : Tahir,Matteo,Vevake,Simone	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Matteo,Vevake,Simone, would you like to change the recipient ?
+5 accept	who is the recipient ?
+6 Samuel is the receiver	destination_name_check Samuel
+7 inform destination_name_check : failed , available list of names : Tahir,Matteo,Vevake,Simone	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Matteo,Vevake,Simone, would you like to change the recipient ?
+8 accept	who is the recipient ?
+9 Marco	destination_name_check Marco
+10 inform destination_name_check : failed , available list of names : Tahir,Matteo,Vevake,Simone	The recipient you are trying to provide doesn't exist, available list of recipients is Tahir,Matteo,Vevake,Simone, would you like to change the recipient ?
+11 reject	end_call User failed to change the account
+
+1 <SILENCE>	how can i help you today ?
+2 transfer money	From which account ?
+3 withdraw from Checkin	account_check Checkin
+4 inform account_check : success	who is the recipient ?
+5 Samuel is the recipient	destination_name_check Samuel
+6 inform destination_name_check : success	what is the amount ?
+7 roughly 4500	amount_check  Checkin 4500
+8 inform limit 2000 balance 8000 max_transferable_amt 2000 change to max_transferable_amt ?	It seems the amount you provided can't be processed because your transaction limit is 2000 and your current balance is 8000 so the maximum you can transfer is 2000, would you like to reduce your amount to this amount ?
+9 accept	confirm transaction ?
+10 accept	api_call Checkin Samuel 2000
+11 inform api_call success	end_call transaction conducted successfully, ciao !!
+
