@@ -3,7 +3,7 @@ Co-authored by : ***Sourabh Majumdar*** <msourabh970320@gmail.com>
 Co-authored by : ***Tejas Bhatia*** <ted.bhatia@gmail.com>
 ### Objective
 
-We are trying to develop a general purpose conversational agent.
+We are trying to develop a general purpose conversational agent. This project is completed in accordance with the Design Project of Semester 2 (2017-2018).
 
 ### Motivation
 
